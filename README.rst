@@ -2,13 +2,19 @@ Python-PlexLibrary
 ==================
 
 Python command line utility for creating and maintaining dynamic Plex
-libraries based on "recipes".
+libraries and playlists based on "recipes".
 
-E.g. Create a library consisting of all movies or tv shows in a Trakt_
-list that exist in your main library, and set the sort titles
-accordingly.
+E.g. Create a library or playlist consisting of all movies or tv shows in a Trakt_ list or
+on an IMDb_ chart that exist in your main library, and set the sort titles
+accordingly (sort only available for libraries).
 
 .. _Trakt: https://trakt.tv/
+.. _IMDb: https://imdb.com/
+
+Known limitations
+-----------------
+
+The new Plex Movie agent is not currently supported.
 
 Disclaimer
 ----------
@@ -16,6 +22,8 @@ This is still a work in progress, so major changes may occur in new versions.
 
 Requirements
 ------------
+
+* Python 3
 
 * You need a trakt.tv account and an API app: https://trakt.tv/oauth/applications/new
 
@@ -29,6 +37,8 @@ Requirements
     
   * Shouldn't be necessary for Trakt, as those usually all have TMDb IDs.
 
+  * Required for matching movies and some TV shows sourced from IMDb
+
 * (optional) TheTVDB API
 
   * https://www.thetvdb.com/?tab=apiregister
@@ -36,6 +46,8 @@ Requirements
   * Required for matching any library items that use the TheTVDB agent with the items from the lists (if those items do not include a TheTVDB ID)
     
   * Shouldn't be necessary for Trakt, as those usually all have TVDB IDs.
+
+  * Required for matching TV shows sourced from IMDb
 
 Getting started
 ---------------
@@ -62,13 +74,13 @@ In the base directory, run:
 
 .. code-block:: shell
 
-    python plexlibrary -h
+    python3 plexlibrary -h
 
 for details on how to use the utility.
 
 .. code-block:: shell
 
-    python plexlibrary -l
+    python3 plexlibrary -l
 
 lists available recipes.
 
@@ -76,7 +88,7 @@ To run a recipe named "movies_trending", run:
 
 .. code-block:: shell
 
-    python plexlibrary movies_trending
+    python3 plexlibrary movies_trending
     
 **(If you're on Windows, you might have to run as admin)**
 

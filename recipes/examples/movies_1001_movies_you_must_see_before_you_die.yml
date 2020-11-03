@@ -3,7 +3,7 @@ library_type: 'movie'
 
 # Source list(s)
 source_list_urls:
-  - 'https://api.trakt.tv/users/outlanders/lists/complete-1001-movies-you-must-see-before-you-die/items/movies'
+  - 'https://api.trakt.tv/movies/trending?limit=50'
 
 # Source library details
 source_libraries:
@@ -15,27 +15,43 @@ source_libraries:
     folders:
       - '/path/to/Different Movies'
 
+# New playlist details
+new_playlist:
+  name: 'Movies - 1001 Movies You Must See Before You Die'
+  # Limit the age (in years) of items to be considered
+  # * 0 for no limit
+  max_age: 0
+  # Maximum number of items to keep in the library
+  max_count: 250
+  # Remove items that no longer exist in the source lists
+  remove_from_playlist: true
+  share_to_users:
+    - username1
+    - username2
+    - username3
+  share_to_all: false
+
 # New library details
 new_library:
   name: 'Movies - 1001 Movies You Must See Before You Die'
   folder: '/path/to/symlink/supporting/filesystem/Movies - 1001 Must/'
-  sort: yes
+  sort: true
   sort_title:
     format: '{number}. {title}'
-    visible: yes
-    absolute: yes  # Skips numbers for missing items
+    visible: true
+    absolute: true  # Skips numbers for missing items
   # Limit the age (in years) of items to be considered
   # * 0 for no limit
   max_age: 0
   # Maximum number of items to keep in the library
   max_count: 0
   # Remove items that no longer exist in the source lists
-  remove_from_library: yes
+  remove_from_library: true
 
 # Weighted sorting (requires TMDb API)
 weighted_sorting:
-  enabled: no
-  better_release_date: no
+  enabled: false
+  better_release_date: false
   weights:
     # Think of these as percentages,
     # but they don't have to add up to 1.0

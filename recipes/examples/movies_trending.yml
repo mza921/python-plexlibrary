@@ -21,27 +21,43 @@ source_libraries:
     folders:
       - '/path/to/Different Movies'
 
-# New library details
-new_library:
+# New playlist details
+new_playlist:
   name: 'Movies - Trending'
-  folder: '/path/to/symlink/supporting/filesystem/Movies - Trending/'
-  sort: yes
-  sort_title:
-    format: '{number}. {title}'
-    visible: no
-    absolute: no  # Skips numbers for missing items
   # Limit the age (in years) of items to be considered
   # * 0 for no limit
   max_age: 3
   # Maximum number of items to keep in the library
   max_count: 250
   # Remove items that no longer exist in the source lists
-  remove_from_library: yes
+  remove_from_playlist: true
+  share_to_users:
+    - username1
+    - username2
+    - username3
+  share_to_all: false
+
+# New library details
+new_library:
+  name: 'Movies - Trending'
+  folder: '/path/to/symlink/supporting/filesystem/Movies - Trending/'
+  sort: true
+  sort_title:
+    format: '{number}. {title}'
+    visible: false
+    absolute: false  # Skips numbers for missing items
+  # Limit the age (in years) of items to be considered
+  # * 0 for no limit
+  max_age: 3
+  # Maximum number of items to keep in the library
+  max_count: 250
+  # Remove items that no longer exist in the source lists
+  remove_from_library: true
 
 # Weighted sorting (requires TMDb API)
 weighted_sorting:
-  enabled: yes
-  better_release_date: no
+  enabled: true
+  better_release_date: false
   weights:
     # Think of these as percentages,
     # but they don't have to add up to 1.0
